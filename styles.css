@@ -1,0 +1,68 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#downloadButton {
+    background: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#downloadButton:hover {
+    background: #0056b3;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+#particle-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    background: white;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: float 5s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+/* Hiệu ứng nhảy */
+@keyframes  float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(-100vh) translateX(calc(-50vw + 100px));
+    }
+}
