@@ -1,28 +1,36 @@
-// script.js
-const container = document.getElementById("particle-container");
+document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-// Tạo hiệu ứng particles
-function createParticles() {
-    for (let i = 0; i < 100; i++) {
-        const particle = document.createElement("div");
-        particle.classList.add("particle");
-        particle.style.left = Math.random() * 100 + "vw";
-        particle.style.top = Math.random() * 100 + "vh";
-        particle.style.animationDuration = Math.random() * 5 + 2 + "s";
-        container.appendChild(particle);
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-        // Xóa particle khi hoàn tất animation
-        particle.addEventListener("animationend", () => {
-            particle.remove();
+            if (username === 'dieu' && password === 'huan') {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('menu').style.display = 'flex';
+                showNotification();
+            } else {
+                alert('Thông tin đăng nhập không đúng!');
+            }
         });
-    }
-}
 
-// Tạo particles lặp lại
-setInterval(createParticles, 1000);
+        function showLoveImages() {
+            const loveImages = document.getElementById('menu-images');
+            const loveMessage = document.getElementById('love-message');
+            const heartExplosion = document.getElementById('heart-explosion');
+            
+            loveImages.style.display = 'flex';
+            loveMessage.style.display = 'block';
+            heartExplosion.style.display = 'block';
 
-// Button event
-const downloadButton = document.getElementById("downloadButton");
-downloadButton.addEventListener("click", () => {
-    window.location.href = "https://www.mediafire.com/file/rwepv7ci50r0cut/cache_res.OdVY88vqa9NcdHWx8dKH1EWvhoo%257E3D/file"; // Đường link tải về
-});
+            setTimeout(function() {
+                heartExplosion.style.display = 'none';
+            }, 1000);
+        }
+
+        function showNotification() {
+            document.getElementById('notification').style.display = 'block';
+        }
+
+        function closeNotification() {
+            document.getElementById('notification').style.display = 'none';
+        }
